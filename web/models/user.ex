@@ -1,9 +1,8 @@
 defmodule Movecoinserver.User do
   use Ecto.Model
   import Ecto.Query
-
+  @primary_key{:Email, :string, []}
   schema "Usuario" do
-    field :Email, :string
     field :Password, :string
     field :App, :string
     field :Apm, :string

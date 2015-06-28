@@ -29,8 +29,8 @@ config :logger, :console, format: "[$level] $message\n"
 # Configure your database
 config :movecoinserver, Movecoinserver.Repo,
   adapter: Ecto.Adapters.MySQL,
-  username: "move",
-  password: "noeisai",
+  username: "root",
+  password: "",
   database: "MoveCoins",
-  hostname: "192.168.0.2",
+  hostname: "localhost",
   size: 10 # The amount of database connections in the pool
