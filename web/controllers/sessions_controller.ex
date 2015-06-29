@@ -3,10 +3,17 @@ defmodule Movecoinserver.SessionsController do
 
   plug :action
 
-  def login(conn, _params) do
-    IO.inspect conn
-    conn
-      |> put_status(200)
-      |> json %{succes: "succes"}
+  def login(conn, params) do
+  	case Movecoinserver.User.authenticate(params["user"],params["password"]) do
+  		{:ok,_} ->
+  			conn
+      		|> put_status(200)
+      		|> json %{login: "succes"}
+      {:error,error} ->
+      	conn
+      		|> put_status(401)
+      		|> json %{fail: error}	
+  	end
+    
   end
 end
